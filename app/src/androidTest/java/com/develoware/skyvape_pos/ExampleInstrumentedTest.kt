@@ -1,4 +1,4 @@
-package com.develoware.simplepay_store
+package com.develoware.skyvape_pos
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

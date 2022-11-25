@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="Background">#0a0a0a</color>
+    <color name="semi_background">#333</color>
     <color name="gradient_red">#007adf</color>
     <color name="gradient_blue">#00ecbc</color>
 </resources>

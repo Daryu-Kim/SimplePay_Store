@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.develoware.simplepay_store'
+    namespace 'com.develoware.skyvape_pos'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.develoware.simplepay_store"
+        applicationId "com.develoware.skyvape_pos"
         minSdk 23
         targetSdk 32
         versionCode 1

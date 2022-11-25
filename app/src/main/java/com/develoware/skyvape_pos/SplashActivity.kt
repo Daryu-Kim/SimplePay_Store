@@ -1,10 +1,10 @@
-package com.develoware.simplepay_store
+package com.develoware.skyvape_pos
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
-import com.develoware.simplepay_store.databinding.ActivitySplashBinding
+import com.develoware.skyvape_pos.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {
     private var mBinding: ActivitySplashBinding? = null

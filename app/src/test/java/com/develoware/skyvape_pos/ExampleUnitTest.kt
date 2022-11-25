@@ -1,4 +1,4 @@
-package com.develoware.simplepay_store
+package com.develoware.skyvape_pos
 
 import org.junit.Test
 

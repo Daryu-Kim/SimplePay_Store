@@ -1,24 +1,30 @@
-package com.develoware.simplepay_store
+package com.develoware.skyvape_pos
 
 import android.R
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-import com.develoware.simplepay_store.databinding.ActivityLoginInputBinding
+import com.develoware.skyvape_pos.databinding.ActivityLoginBinding
 
 
-class LoginInputActivity : AppCompatActivity() {
-    private var mBinding: ActivityLoginInputBinding? = null
+class LoginActivity : AppCompatActivity() {
+    private var mBinding: ActivityLoginBinding? = null
     private val binding get() = mBinding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mBinding = ActivityLoginInputBinding.inflate(layoutInflater)
+        mBinding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         hideSystemUI()
+
+        binding.loginContentLoginPhoneBtnLayout.setOnClickListener {
+            val intent = Intent(this, LoginInputActivity::class.java)
+            startActivity(intent)
+        }
 
     }
     private fun hideSystemUI() {

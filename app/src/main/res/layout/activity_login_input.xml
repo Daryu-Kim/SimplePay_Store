@@ -7,41 +7,79 @@
     android:paddingHorizontal="48dp"
     android:paddingVertical="64dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <TextView
+        android:id="@+id/login_input_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bold"
+        android:text="가맹점 식별 번호"
+        android:textSize="42dp"
+        android:textColor="@color/gradient_blue"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/login_input_tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bold"
+        android:text="로 로그인"
+        android:textSize="42dp"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toRightOf="@id/login_input_tv"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/login_input_id_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/bold"
+        android:text="가맹점 선택"
+        android:textSize="36dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_input_tv" />
+
+    <RadioGroup
         android:id="@+id/login_input_id_layout"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/login_input_id_tv">
 
-        <TextView
-            android:id="@+id/login_input_id_tv"
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:paddingStart="8dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/medium"
+            android:text="은행동점"
+            android:textColor="@color/white"
+            android:textSize="24dp"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:paddingStart="8dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/medium"
+            android:layout_marginStart="24dp"
+            android:text="용전동점"
+            android:textColor="@color/white"
+            android:textSize="24dp"/>
+
+        <RadioButton
+            android:layout_marginStart="24dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/bold"
-            android:text="가맹점 식별번호"
-            android:textSize="36dp"
-            app:layout_constraintBottom_toTopOf="@id/login_input_id_et"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/login_input_id_et"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:layout_marginTop="16dp"
+            android:paddingStart="8dp"
             android:fontFamily="@font/medium"
-            android:hint="가맹점 식별번호 (숫자 8자리)"
-            android:textSize="24dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/login_input_id_tv" />
+            android:text="오류동점"
+            android:textColor="@color/white"
+            android:textSize="24dp"/>
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RadioGroup>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/login_input_pw_layout"
@@ -57,7 +95,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/bold"
-            android:text="가맹점 식별번호"
+            android:text="식별 번호"
             android:textSize="36dp"
             app:layout_constraintBottom_toTopOf="@id/login_input_pw_et"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -70,7 +108,9 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/medium"
             android:inputType="numberPassword"
-            android:hint="가맹점 식별번호 (숫자 8자리)"
+            android:hint="식별 번호 (숫자 6자리)"
+            android:maxLength="6"
+            android:textColorHint="#888"
             android:textSize="24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -79,7 +119,7 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
+\
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/login_input_btn_layout"
@@ -102,7 +142,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/medium"
-            android:text="가맹점 식별 번호로 로그인"
+            android:text="로그인"
             android:textColor="#fff"
             android:textSize="28dp"
             app:layout_constraintBottom_toBottomOf="parent"
