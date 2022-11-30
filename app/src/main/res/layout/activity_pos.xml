@@ -9,11 +9,13 @@
 
     <com.google.android.material.tabs.TabLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
+        android:id="@+id/pos_category_layout"
         app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/semi_background"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintRight_toLeftOf="@id/pos_basket_layout">
+        app:layout_constraintRight_toLeftOf="@id/pos_basket_layout"
+        android:layout_marginEnd="24dp">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
@@ -25,42 +27,19 @@
             android:layout_height="wrap_content"
             android:text="폐호흡 기기"/>
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="일회용 기기"/>
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="입호흡 액상"/>
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="폐호흡 액상"/>
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="입호흡 무화기"/>
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="폐호흡 무화기"/>
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="일회용 무화기"/>
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="잡화"/>
-
     </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pos_product_list"
+        android:paddingVertical="16dp"
+        android:paddingHorizontal="16dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintRight_toLeftOf="@id/pos_basket_layout"
+        app:layout_constraintTop_toBottomOf="@id/pos_category_layout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <ScrollView
         android:id="@+id/pos_basket_layout"

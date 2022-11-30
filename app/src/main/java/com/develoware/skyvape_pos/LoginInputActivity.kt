@@ -1,6 +1,7 @@
 package com.develoware.skyvape_pos
 
 import android.R
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
@@ -19,6 +20,11 @@ class LoginInputActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         hideSystemUI()
+
+        binding.loginInputBtnLayout.setOnClickListener {
+            val intent = Intent(this, PosActivity::class.java)
+            startActivity(intent)
+        }
 
     }
     private fun hideSystemUI() {
