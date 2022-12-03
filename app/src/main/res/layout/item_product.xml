@@ -40,4 +40,17 @@
         android:id="@+id/product_price"
         android:textSize="12dp"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/medium"
+        android:text="0개"
+        app:layout_constraintTop_toBottomOf="@id/product_price"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:gravity="center"
+        android:layout_marginTop="4dp"
+        android:id="@+id/product_count"
+        android:textSize="12dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

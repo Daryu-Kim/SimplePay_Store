@@ -1,16 +1,24 @@
 package com.develoware.skyvape_pos
 
+import android.graphics.ColorMatrix
+import android.graphics.ColorMatrixColorFilter
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import java.text.DecimalFormat
 
 class LungDeviceFragment : Fragment() {
 
@@ -29,13 +37,11 @@ class LungDeviceFragment : Fragment() {
     }
 
     inner class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-        // Person 클래스 ArrayList 생성성
         var productData : ArrayList<ProductData> = arrayListOf()
 
-        init {  // telephoneBook의 문서를 불러온 뒤 Person으로 변환해 ArrayList에 담음
+        init {
             db.collection("lung_device")
                 .addSnapshotListener { querySnapshot, firebaseFirestoreException ->
-                    // ArrayList 비워줌
                     productData.clear()
 
                     for (snapshot in querySnapshot!!.documents) {
@@ -52,19 +58,52 @@ class LungDeviceFragment : Fragment() {
             return ViewHolder(view)
         }
 
-        inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        }
+        inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {}
 
-        // onCreateViewHolder에서 만든 view와 실제 데이터를 연결
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-            var viewHolder = (holder as ViewHolder).itemView
+            val viewHolder = (holder as ViewHolder).itemView
+
+            var storage :FirebaseStorage = FirebaseStorage.getInstance()
+            var storageRef : StorageReference = storage.reference.child("Lung_Device/${productData[position].img.toString()}")
 
             val name_tv = viewHolder.findViewById<TextView>(R.id.product_name)
             val img_iv = viewHolder.findViewById<ImageView>(R.id.product_img)
             val price_tv = viewHolder.findViewById<TextView>(R.id.product_price)
+            val count_tv = viewHolder.findViewById<TextView>(R.id.product_count)
 
             name_tv.text = productData[position].name
-            price_tv.text = "${productData[position].price.toString()}원"
+            price_tv.text = "${DecimalFormat("#,###").format(productData[position].price)}원"
+            count_tv.text = "재고: ${DecimalFormat("#,###").format(productData[position].count)}개"
+            storageRef.downloadUrl.addOnSuccessListener {
+                if (productData[position].count == 0) {
+                    val matrix = ColorMatrix()
+                    matrix.setSaturation(0F)
+                    val filter = ColorMatrixColorFilter(matrix)
+                    img_iv.setColorFilter(filter)
+                } else {
+                    img_iv.setColorFilter(null)
+                }
+                Glide.with(this@LungDeviceFragment)
+                    .load(it.toString())
+                    .centerCrop()
+                    .into(img_iv)
+            }
+
+                .addOnFailureListener {
+                    Glide.with(this@LungDeviceFragment)
+                        .load(R.drawable.logo)
+                        .centerCrop()
+                        .into(img_iv)
+                }
+
+                holder.itemView.setOnClickListener {
+                    if (productData[position].count == 0) {
+                        Toast.makeText(context, "현재 남아있는 재고가 없습니다!", Toast.LENGTH_SHORT).show()
+                    }
+                    else {
+                        Toast.makeText(context, price_tv.text, Toast.LENGTH_SHORT).show()
+                    }
+                }
         }
 
         // 리사이클러뷰의 아이템 총 개수 반환
