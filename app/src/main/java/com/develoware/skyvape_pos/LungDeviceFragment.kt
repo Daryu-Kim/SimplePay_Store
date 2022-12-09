@@ -1,5 +1,6 @@
 package com.develoware.skyvape_pos
 
+import android.app.AlertDialog
 import android.graphics.ColorMatrix
 import android.graphics.ColorMatrixColorFilter
 import android.os.Bundle
@@ -102,6 +103,14 @@ class LungDeviceFragment : Fragment() {
                     }
                     else {
                         Toast.makeText(context, price_tv.text, Toast.LENGTH_SHORT).show()
+                        var builder = AlertDialog.Builder(context)
+                        var dlg_view = layoutInflater.inflate(R.layout.dialog_product_option, null)
+                        builder.setTitle("${productData[position].name} 색상 선택")
+                        builder.setIcon(null)
+                        builder.setView(dlg_view)
+
+                        builder.show()
+
                     }
                 }
         }

@@ -49,10 +49,53 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <androidx.recyclerview.widget.RecyclerView
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/pos_basket_lv"
+            android:stretchColumns="*"
+            android:background="@color/semi_background"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:paddingVertical="6dp">
+
+                <TextView
+                    android:id="@+id/pos_basket_name"
+                    android:text="품 명"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/bold"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/pos_basket_color"
+                    android:text="규 격"
+                    android:layout_width="0dp"
+                    android:fontFamily="@font/bold"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/pos_basket_count"
+                    android:text="수 량"
+                    android:fontFamily="@font/bold"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/pos_basket_price"
+                    android:text="가 격"
+                    android:layout_width="0dp"
+                    android:fontFamily="@font/bold"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"/>
+
+            </TableRow>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 
