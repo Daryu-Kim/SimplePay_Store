@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "773435517452",
+    "project_id": "skyvape-pos",
+    "storage_bucket": "skyvape-pos.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:773435517452:android:832ef65e146b3cad8f5c29",
+        "android_client_info": {
+          "package_name": "com.develoware.skyvape_pos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "773435517452-uu7j71dgu4it6f75idqlvsve21ps43s0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzmrIKQij0jKUHD0csvdUD1HR3XC9Dwjc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "773435517452-uu7j71dgu4it6f75idqlvsve21ps43s0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

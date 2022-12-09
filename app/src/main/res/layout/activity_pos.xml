@@ -1,106 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/Background"
     android:paddingHorizontal="48dp"
     android:paddingVertical="64dp">
 
     <com.google.android.material.tabs.TabLayout
+        android:id="@+id/pos_category_layout"
         android:layout_width="0dp"
         android:layout_height="48dp"
-        android:id="@+id/pos_category_layout"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="24dp"
         android:background="@color/semi_background"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/pos_basket_layout"
-        android:layout_marginEnd="24dp">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="입호흡 기기"/>
+            android:text="입호흡 기기" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="폐호흡 기기"/>
+            android:text="폐호흡 기기" />
 
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/pos_product_list"
-        android:paddingVertical="16dp"
-        android:paddingHorizontal="16dp"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintRight_toLeftOf="@id/pos_basket_layout"
-        app:layout_constraintTop_toBottomOf="@id/pos_category_layout"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginEnd="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/pos_basket_layout"
+        app:layout_constraintTop_toBottomOf="@id/pos_category_layout" />
+
+
+    <LinearLayout
+        android:id="@+id/pos_basket_title"
+        android:layout_width="324dp"
+        android:layout_height="wrap_content"
+        android:paddingVertical="6dp"
+        android:background="@color/semi_background"
+        android:orientation="horizontal"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="162dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:fontFamily="@font/bold"
+            android:gravity="center"
+            android:text="품 목"
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="64.8dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:fontFamily="@font/bold"
+            android:gravity="center"
+            android:text="수 량"
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="97.2dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:fontFamily="@font/bold"
+            android:gravity="center"
+            android:text="가 격"
+            android:textSize="16dp" />
+
+    </LinearLayout>
 
     <ScrollView
         android:id="@+id/pos_basket_layout"
         android:layout_width="324dp"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="420dp"
+        android:background="@color/semi_background"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/pos_basket_title">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/pos_basket_lv"
-            android:stretchColumns="*"
-            android:background="@color/semi_background"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="6dp"
-                android:visibility="gone"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent">
-
-                <TextView
-                    android:id="@+id/pos_basket_name"
-                    android:text="품 명"
-                    android:layout_width="0dp"
-                    android:gravity="center"
-                    android:fontFamily="@font/bold"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    android:id="@+id/pos_basket_color"
-                    android:text="규 격"
-                    android:layout_width="0dp"
-                    android:fontFamily="@font/bold"
-                    android:gravity="center"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    android:id="@+id/pos_basket_count"
-                    android:text="수 량"
-                    android:fontFamily="@font/bold"
-                    android:layout_width="0dp"
-                    android:gravity="center"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    android:id="@+id/pos_basket_price"
-                    android:text="가 격"
-                    android:layout_width="0dp"
-                    android:fontFamily="@font/bold"
-                    android:gravity="center"
-                    android:layout_height="wrap_content"/>
-
-            </TableRow>
+            android:layout_height="wrap_content"
+            android:background="@color/semi_background"
+            android:stretchColumns="*">
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/pos_basket_discount_layout"
+        android:layout_width="324dp"
+        android:layout_height="wrap_content"
+        android:background="@color/semi_background"
+        android:orientation="horizontal"
+        android:paddingVertical="6dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pos_basket_layout">
+
+        <TextView
+            android:layout_width="97.2dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:fontFamily="@font/bold"
+            android:gravity="center"
+            android:text="할 인"
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="226.8dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:fontFamily="@font/bold"
+            android:gravity="end"
+            android:text="-600원"
+            android:textSize="16dp"
+            android:paddingHorizontal="12dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pos_basket_total_layout"
+        android:layout_width="324dp"
+        android:layout_height="wrap_content"
+        android:background="@color/semi_background"
+        android:paddingVertical="6dp"
+        android:orientation="horizontal"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pos_basket_discount_layout">
+
+        <TextView
+            android:layout_width="97.2dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:fontFamily="@font/bold"
+            android:gravity="center"
+            android:text="총 합"
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="226.8dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:fontFamily="@font/bold"
+            android:gravity="end"
+            android:text="120,000원"
+            android:paddingHorizontal="12dp"
+            android:textSize="16dp" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

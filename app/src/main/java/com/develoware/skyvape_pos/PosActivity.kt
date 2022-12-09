@@ -18,6 +18,9 @@ class PosActivity : AppCompatActivity() {
         mBinding = ActivityPosBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        var basketData: ArrayList<BasketData> = arrayListOf()
+        basketData.clear()
+
         binding.posProductList.adapter = ViewpagerFragmentAdapter(this)
         TabLayoutMediator(binding.posCategoryLayout, binding.posProductList, {tab, position -> tab.text = tabTitles[position]}).attach()
     }
