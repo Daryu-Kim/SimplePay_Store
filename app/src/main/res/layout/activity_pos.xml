@@ -49,8 +49,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
-
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/pos_basket_lv"
             android:stretchColumns="*"
@@ -59,7 +57,13 @@
             android:layout_height="wrap_content">
 
             <TableRow
-                android:paddingVertical="6dp">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="6dp"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
 
                 <TextView
                     android:id="@+id/pos_basket_name"

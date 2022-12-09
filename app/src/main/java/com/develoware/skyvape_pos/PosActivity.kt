@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.develoware.skyvape_pos.databinding.ActivityPosBinding
-import com.develoware.skyvape_pos.databinding.ActivitySplashBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
 class PosActivity : AppCompatActivity() {
