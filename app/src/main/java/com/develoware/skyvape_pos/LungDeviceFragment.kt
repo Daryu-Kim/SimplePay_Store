@@ -114,7 +114,6 @@ class LungDeviceFragment : Fragment() {
                     Toast.makeText(context, "현재 남아있는 재고가 없습니다!", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(context, price_tv.text, Toast.LENGTH_SHORT).show()
-                    basketData.add()
 
                 }
             }
