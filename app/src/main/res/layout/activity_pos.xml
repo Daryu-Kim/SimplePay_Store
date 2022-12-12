@@ -220,10 +220,11 @@
     <ScrollView
         android:id="@+id/pos_basket_layout"
         android:layout_width="324dp"
-        android:layout_height="420dp"
+        android:layout_height="0dp"
         android:background="@color/semi_background"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pos_basket_title">
+        app:layout_constraintTop_toBottomOf="@id/pos_basket_title"
+        app:layout_constraintBottom_toTopOf="@id/pos_basket_discount_layout">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/pos_basket_rv"
@@ -243,7 +244,7 @@
         android:orientation="horizontal"
         android:paddingVertical="6dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pos_basket_layout">
+        app:layout_constraintBottom_toTopOf="@id/pos_basket_total_layout">
 
         <TextView
             android:layout_width="97.2dp"
@@ -274,7 +275,7 @@
         android:orientation="horizontal"
         android:paddingVertical="6dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pos_basket_discount_layout">
+        app:layout_constraintBottom_toTopOf="@id/pos_basket_edit_layout">
 
         <TextView
             android:layout_width="97.2dp"
@@ -297,5 +298,61 @@
             android:textSize="16dp" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="324dp"
+        android:layout_height="wrap_content"
+        android:background="@color/semi_background"
+        android:orientation="horizontal"
+        android:paddingVertical="6dp"
+        android:paddingHorizontal="6dp"
+        android:id="@+id/pos_basket_edit_layout"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/pos_basket_discount_btn">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/pos_basket_edit_replace"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bold"
+            android:text="수량 변경"
+            android:layout_marginRight="8dp"
+            android:background="@color/cardview_dark_background"
+            android:textSize="16dp"
+            android:layout_weight="1"
+            android:gravity="center"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/pos_basket_edit_remove"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bold"
+            android:text="상품 삭제"
+            android:background="@color/cardview_dark_background"
+            android:textSize="16dp"
+            android:layout_weight="1"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="324dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bold"
+        android:text="할인 조정"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/pos_basket_pay_btn"
+        android:background="@color/cardview_dark_background"
+        android:id="@+id/pos_basket_discount_btn"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="324dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bold"
+        android:text="계산하기"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/cardview_dark_background"
+        android:id="@+id/pos_basket_pay_btn"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
