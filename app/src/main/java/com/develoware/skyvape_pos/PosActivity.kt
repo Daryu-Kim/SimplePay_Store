@@ -1,6 +1,7 @@
 package com.develoware.skyvape_pos
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.ColorMatrix
 import android.graphics.ColorMatrixColorFilter
 import android.os.Bundle
@@ -13,6 +14,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.develoware.skyvape_pos.databinding.ActivityPosBinding
@@ -26,14 +28,13 @@ import java.text.DecimalFormat
 class PosActivity : AppCompatActivity() {
     private var mBinding: ActivityPosBinding? = null
     private val binding get() = mBinding!!
+    var total_price = 0
 
     val db = Firebase.firestore
 
     var category: String = "mouth_device"
 
     var basketData = arrayListOf<BasketData>()
-
-    //val tabTitles = listOf<String>("입호흡 기기", "폐호흡 기기")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,18 +61,25 @@ class PosActivity : AppCompatActivity() {
             }
         }
 
+        binding.posCategoryOnceDevice.setOnClickListener {
+            category = it.tag as String
+            binding.posProductList.apply {
+                adapter = RecyclerViewAdapter()
+            }
+        }
+
         basketData.clear()
 
-        binding.posBasketLv.adapter = BasketAdapter(basketData)
-
-        //binding.posProductList.adapter = ViewpagerFragmentAdapter(this)
-        //TabLayoutMediator(binding.posCategoryLayout, binding.posProductList, {tab, position -> tab.text = tabTitles[position]}).attach()
+        binding.posBasketRv.apply {
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(this@PosActivity)
+            adapter = BasketAdapter("Eunhaeng")
+        }
 
 
     }
     inner class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         var productData: ArrayList<ProductData> = arrayListOf()
-        var basketData: ArrayList<BasketData> = arrayListOf()
 
         init {
             db.collection(category)
@@ -105,20 +113,10 @@ class PosActivity : AppCompatActivity() {
             val name_tv = viewHolder.findViewById<TextView>(R.id.product_name)
             val img_iv = viewHolder.findViewById<ImageView>(R.id.product_img)
             val price_tv = viewHolder.findViewById<TextView>(R.id.product_price)
-            val count_tv = viewHolder.findViewById<TextView>(R.id.product_count)
 
             name_tv.text = productData[position].name
             price_tv.text = "${DecimalFormat("#,###").format(productData[position].price)}원"
-            count_tv.text = "재고: ${DecimalFormat("#,###").format(productData[position].count)}개"
             storageRef.downloadUrl.addOnSuccessListener {
-                if (productData[position].count == 0) {
-                    val matrix = ColorMatrix()
-                    matrix.setSaturation(0F)
-                    val filter = ColorMatrixColorFilter(matrix)
-                    img_iv.colorFilter = filter
-                } else {
-                    img_iv.colorFilter = null
-                }
                 Glide.with(this@PosActivity)
                     .load(it.toString())
                     .centerCrop()
@@ -133,14 +131,17 @@ class PosActivity : AppCompatActivity() {
                 }
 
             holder.itemView.setOnClickListener {
-                if (productData[position].count == 0) {
-                    Toast.makeText(this@PosActivity, "현재 남아있는 재고가 없습니다!", Toast.LENGTH_SHORT).show()
-                } else {
-                    val item = BasketData(productData[position].name, productData[position].count, productData[position].price)
-                    basketData.add(item)
-                    binding.posBasketLv.adapter = BasketAdapter(basketData)
-                    Toast.makeText(this@PosActivity, basketData.toString(), Toast.LENGTH_SHORT).show()
-                }
+                db.collection("Eunhaeng_Basket")
+                    .document(productData[position].name.toString())
+                    .set(BasketData(productData[position].name, 1, productData[position].price))
+                    .addOnSuccessListener {
+                        Toast.makeText(this@PosActivity, "장바구니에 담았습니다!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@PosActivity, total_price.toString(), Toast.LENGTH_SHORT).show()
+                        binding.posBasketTotalPrice.text = "${DecimalFormat("#,###").format(total_price)}원"
+                    }
+                    .addOnFailureListener {
+                        Toast.makeText(this@PosActivity, it.toString(), Toast.LENGTH_SHORT).show()
+                    }
             }
         }
 

@@ -6,44 +6,131 @@
     android:background="@color/Background"
     android:paddingHorizontal="48dp"
     android:paddingVertical="64dp">
-    
+
     <LinearLayout
+        android:id="@+id/pos_category_layout"
         android:layout_width="0dp"
         android:layout_height="48dp"
-        android:id="@+id/pos_category_layout"
         android:layout_marginEnd="24dp"
         android:background="@color/semi_background"
+        android:orientation="horizontal"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/pos_basket_layout"
-        app:layout_constraintTop_toTopOf="parent"
-        android:orientation="horizontal">
+        app:layout_constraintTop_toTopOf="parent">
 
         <Button
             android:id="@+id/pos_category_mouth_device"
-            android:tag="mouth_device"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:fontFamily="@font/bold"
-            android:text="입호흡 기기"
             android:background="@android:color/transparent"
-            style="?android:attr/buttonBarButtonStyle" />
+            android:fontFamily="@font/bold"
+            android:tag="mouth_device"
+            android:text="입호흡 기기"
+            android:textSize="12dp" />
 
         <Button
             android:id="@+id/pos_category_lung_device"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
-            android:tag="lung_device"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:fontFamily="@font/bold"
-            android:text="폐호흡 기기"
             android:background="@android:color/transparent"
-            style="?android:attr/buttonBarButtonStyle" />
+            android:fontFamily="@font/bold"
+            android:tag="lung_device"
+            android:text="폐호흡 기기"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/pos_category_once_device"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/bold"
+            android:tag="once_device"
+            android:text="일회용 기기"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/pos_category_mouth_liquid"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/bold"
+            android:tag="mouth_liquid"
+            android:text="입호흡 액상"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/pos_category_lung_liquid"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/bold"
+            android:tag="lung_liquid"
+            android:text="폐호흡 액상"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/pos_category_mouth_atomizer"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/bold"
+            android:tag="mouth_atomizer"
+            android:text="입호흡 무화기"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/pos_category_lung_atomizer"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/bold"
+            android:tag="lung_atomizer"
+            android:text="폐호흡 무화기"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/pos_category_once_atomizer"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/bold"
+            android:tag="once_atomizer"
+            android:text="일회용 무화기"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/pos_category_accesory"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/bold"
+            android:tag="accesory"
+            android:text="잡화"
+            android:textSize="12dp" />
 
 
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/pos_product_list"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="24dp"
@@ -52,9 +139,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/pos_basket_layout"
-        app:layout_constraintTop_toBottomOf="@id/pos_category_layout"
-        android:id="@+id/pos_product_list"/>
-
+        app:layout_constraintTop_toBottomOf="@id/pos_category_layout" />
 
 
     <!--<com.google.android.material.tabs.TabLayout
@@ -97,9 +182,9 @@
         android:id="@+id/pos_basket_title"
         android:layout_width="324dp"
         android:layout_height="wrap_content"
-        android:paddingVertical="6dp"
         android:background="@color/semi_background"
         android:orientation="horizontal"
+        android:paddingVertical="6dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -140,13 +225,13 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pos_basket_title">
 
-        <ListView
-            android:id="@+id/pos_basket_lv"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/pos_basket_rv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/semi_background">
 
-        </ListView>
+        </androidx.recyclerview.widget.RecyclerView>
 
     </ScrollView>
 
@@ -175,9 +260,9 @@
             android:layout_weight="7"
             android:fontFamily="@font/bold"
             android:gravity="end"
+            android:paddingHorizontal="12dp"
             android:text="-600원"
-            android:textSize="16dp"
-            android:paddingHorizontal="12dp"/>
+            android:textSize="16dp" />
 
     </LinearLayout>
 
@@ -186,8 +271,8 @@
         android:layout_width="324dp"
         android:layout_height="wrap_content"
         android:background="@color/semi_background"
-        android:paddingVertical="6dp"
         android:orientation="horizontal"
+        android:paddingVertical="6dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pos_basket_discount_layout">
 
@@ -201,13 +286,14 @@
             android:textSize="16dp" />
 
         <TextView
+            android:id="@+id/pos_basket_total_price"
             android:layout_width="226.8dp"
             android:layout_height="wrap_content"
             android:layout_weight="7"
             android:fontFamily="@font/bold"
             android:gravity="end"
-            android:text="120,000원"
             android:paddingHorizontal="12dp"
+            android:text="120,000원"
             android:textSize="16dp" />
 
     </LinearLayout>

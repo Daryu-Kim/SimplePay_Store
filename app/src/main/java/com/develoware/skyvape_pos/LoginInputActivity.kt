@@ -2,17 +2,21 @@ package com.develoware.skyvape_pos
 
 import android.R
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.develoware.skyvape_pos.databinding.ActivityLoginInputBinding
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
 class LoginInputActivity : AppCompatActivity() {
     private var mBinding: ActivityLoginInputBinding? = null
     private val binding get() = mBinding!!
+    val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +26,14 @@ class LoginInputActivity : AppCompatActivity() {
         hideSystemUI()
 
         binding.loginInputBtnLayout.setOnClickListener {
+            db.collection("Eunhaeng_Basket")
+                .get()
+                .addOnSuccessListener { it ->
+                    it.forEach {
+                        it.reference.delete()
+                    }
+                }
+
             val intent = Intent(this, PosActivity::class.java)
             startActivity(intent)
         }
