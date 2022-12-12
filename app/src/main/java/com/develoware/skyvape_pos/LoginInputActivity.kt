@@ -41,7 +41,7 @@ class LoginInputActivity : AppCompatActivity() {
                     }
                 }
 
-            db.collection("Eunhaeng_Basket")
+            db.collection("Eunhaeng_Basket_Data")
                 .document("basket_data")
                 .set(basket_data)
 

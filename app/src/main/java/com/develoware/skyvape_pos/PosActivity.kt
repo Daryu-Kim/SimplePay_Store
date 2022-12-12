@@ -20,6 +20,7 @@ import com.bumptech.glide.Glide
 import com.develoware.skyvape_pos.databinding.ActivityPosBinding
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.getField
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
@@ -74,6 +75,10 @@ class PosActivity : AppCompatActivity() {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@PosActivity)
             adapter = BasketAdapter("Eunhaeng")
+        }
+
+        binding.posBasketTotalPrice.apply {
+            text = "${DecimalFormat("#,###").format(total_price)}원"
         }
 
 
@@ -133,21 +138,59 @@ class PosActivity : AppCompatActivity() {
             holder.itemView.setOnClickListener {
                 db.collection("Eunhaeng_Basket")
                     .document(productData[position].name.toString())
-                    .set(BasketData(productData[position].name, 1, productData[position].price))
-                    .addOnSuccessListener {
-                        Toast.makeText(this@PosActivity, "장바구니에 담았습니다!", Toast.LENGTH_SHORT).show()
-                        Toast.makeText(this@PosActivity, total_price.toString(), Toast.LENGTH_SHORT).show()
-                        binding.posBasketTotalPrice.text = "${DecimalFormat("#,###").format(total_price)}원"
+                    .get()
+                    .addOnSuccessListener { result ->
+                        var temp = result.get("count")
+                        Toast.makeText(this@PosActivity, temp.toString(), Toast.LENGTH_SHORT).show()
+                        if (temp != null) {
+                            db.collection("Eunhaeng_Basket")
+                                .document(productData[position].name.toString())
+                                .update("count", temp)
+                                .addOnSuccessListener {
+                                    notifyDataSetChanged()
+                                }
+                        }
+                        else {
+                            inputBasket(position)
+                        }
                     }
                     .addOnFailureListener {
-                        Toast.makeText(this@PosActivity, it.toString(), Toast.LENGTH_SHORT).show()
+                        inputBasket(position)
                     }
+
+
+
             }
         }
 
         // 리사이클러뷰의 아이템 총 개수 반환
         override fun getItemCount(): Int {
             return productData.size
+        }
+
+        fun inputBasket(position: Int) {
+            db.collection("Eunhaeng_Basket")
+                .document(productData[position].name.toString())
+                .set(BasketData(productData[position].name, 1, productData[position].price))
+                .addOnSuccessListener {
+                    Toast.makeText(this@PosActivity, "장바구니에 담았습니다!", Toast.LENGTH_SHORT).show()
+                    total_price += productData[position].price!!
+                    db.collection("Eunhaeng_Basket_Data")
+                        .document("basket_data")
+                        .update("total_price", total_price)
+                    binding.posBasketTotalPrice.text = "${DecimalFormat("#,###").format(total_price)}원"
+                }
+                .addOnFailureListener {
+                    Toast.makeText(this@PosActivity, it.toString(), Toast.LENGTH_SHORT).show()
+                }
+        }
+
+        fun updatePrice(position: Int) {
+            db.collection("Eunhaeng_Basket_Data")
+                .document("basket_data")
+                .get().addOnSuccessListener {
+
+                }
         }
     }
 }
