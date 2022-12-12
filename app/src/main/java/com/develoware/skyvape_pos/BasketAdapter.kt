@@ -24,8 +24,7 @@ class BasketAdapter(key : String?) : RecyclerView.Adapter<RecyclerView.ViewHolde
                 for (snapshot in querySnapshot!!.documents) {
                     var item = snapshot.toObject(BasketData::class.java)
                     basketData.add(item!!)
-                    // 현재 BasketAdapter에서 PosActivity의 total_price에 값을 저장할 수 없음. 해결 조치바람.
-                    PosActivity().total_price += item.price!!
+                    // firestore에 저장되어 있는 basket_data에서 전체 가격 처리 및 할인액 처리.
                 }
                 notifyDataSetChanged()
             }
