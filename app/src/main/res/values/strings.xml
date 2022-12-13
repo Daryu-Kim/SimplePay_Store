@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">슼베</string>
+
+    <string name="eunhaeng">21170014</string>
+    <string name="yongjeon">76340300</string>
+    <string name="oryu">76340300</string>
 </resources>

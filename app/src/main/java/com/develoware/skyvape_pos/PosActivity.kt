@@ -9,6 +9,7 @@ import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -140,15 +141,9 @@ class PosActivity : AppCompatActivity() {
                     .document(productData[position].name.toString())
                     .get()
                     .addOnSuccessListener { result ->
-                        var temp = result.get("count")
-                        Toast.makeText(this@PosActivity, temp.toString(), Toast.LENGTH_SHORT).show()
+                        var temp = result.get("name")
                         if (temp != null) {
-                            db.collection("Eunhaeng_Basket")
-                                .document(productData[position].name.toString())
-                                .update("count", temp)
-                                .addOnSuccessListener {
-                                    notifyDataSetChanged()
-                                }
+                            Toast.makeText(this@PosActivity, "이미 추가된 상품입니다!", Toast.LENGTH_SHORT).show()
                         }
                         else {
                             inputBasket(position)
@@ -182,14 +177,6 @@ class PosActivity : AppCompatActivity() {
                 }
                 .addOnFailureListener {
                     Toast.makeText(this@PosActivity, it.toString(), Toast.LENGTH_SHORT).show()
-                }
-        }
-
-        fun updatePrice(position: Int) {
-            db.collection("Eunhaeng_Basket_Data")
-                .document("basket_data")
-                .get().addOnSuccessListener {
-
                 }
         }
     }

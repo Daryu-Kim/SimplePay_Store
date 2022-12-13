@@ -4,13 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/Background"
-    android:paddingHorizontal="48dp"
-    android:paddingVertical="64dp">
+    android:paddingHorizontal="36dp"
+    android:paddingVertical="48dp">
 
     <LinearLayout
-        android:id="@+id/pos_category_layout"
+        android:id="@+id/pos_category1_layout"
         android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_height="42dp"
         android:layout_marginEnd="24dp"
         android:background="@color/semi_background"
         android:orientation="horizontal"
@@ -28,7 +28,7 @@
             android:fontFamily="@font/bold"
             android:tag="mouth_device"
             android:text="입호흡 기기"
-            android:textSize="12dp" />
+            android:textSize="16dp" />
 
         <Button
             android:id="@+id/pos_category_lung_device"
@@ -40,7 +40,7 @@
             android:fontFamily="@font/bold"
             android:tag="lung_device"
             android:text="폐호흡 기기"
-            android:textSize="12dp" />
+            android:textSize="16dp" />
 
         <Button
             android:id="@+id/pos_category_once_device"
@@ -52,7 +52,7 @@
             android:fontFamily="@font/bold"
             android:tag="once_device"
             android:text="일회용 기기"
-            android:textSize="12dp" />
+            android:textSize="16dp" />
 
         <Button
             android:id="@+id/pos_category_mouth_liquid"
@@ -64,7 +64,7 @@
             android:fontFamily="@font/bold"
             android:tag="mouth_liquid"
             android:text="입호흡 액상"
-            android:textSize="12dp" />
+            android:textSize="16dp" />
 
         <Button
             android:id="@+id/pos_category_lung_liquid"
@@ -76,7 +76,20 @@
             android:fontFamily="@font/bold"
             android:tag="lung_liquid"
             android:text="폐호흡 액상"
-            android:textSize="12dp" />
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pos_category2_layout"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="24dp"
+        android:background="@color/semi_background"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/pos_basket_layout"
+        app:layout_constraintTop_toBottomOf="@id/pos_category1_layout">
 
         <Button
             android:id="@+id/pos_category_mouth_atomizer"
@@ -88,7 +101,7 @@
             android:fontFamily="@font/bold"
             android:tag="mouth_atomizer"
             android:text="입호흡 무화기"
-            android:textSize="12dp" />
+            android:textSize="16dp" />
 
         <Button
             android:id="@+id/pos_category_lung_atomizer"
@@ -100,7 +113,7 @@
             android:fontFamily="@font/bold"
             android:tag="lung_atomizer"
             android:text="폐호흡 무화기"
-            android:textSize="12dp" />
+            android:textSize="16dp" />
 
         <Button
             android:id="@+id/pos_category_once_atomizer"
@@ -112,7 +125,7 @@
             android:fontFamily="@font/bold"
             android:tag="once_atomizer"
             android:text="일회용 무화기"
-            android:textSize="12dp" />
+            android:textSize="16dp" />
 
         <Button
             android:id="@+id/pos_category_accesory"
@@ -124,7 +137,7 @@
             android:fontFamily="@font/bold"
             android:tag="accesory"
             android:text="잡화"
-            android:textSize="12dp" />
+            android:textSize="16dp" />
 
 
     </LinearLayout>
@@ -134,225 +147,129 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="24dp"
+        android:background="@color/dark_background"
         android:paddingHorizontal="16dp"
         android:paddingVertical="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/pos_basket_layout"
-        app:layout_constraintTop_toBottomOf="@id/pos_category_layout" />
+        app:layout_constraintTop_toBottomOf="@id/pos_category2_layout" />
 
-
-    <!--<com.google.android.material.tabs.TabLayout
-        android:id="@+id/pos_category_layout"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="24dp"
-        android:background="@color/semi_background"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/pos_basket_layout"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="입호흡 기기" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="폐호흡 기기" />
-
-    </com.google.android.material.tabs.TabLayout>
-
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/pos_product_list"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="24dp"
-        android:paddingHorizontal="16dp"
-        android:paddingVertical="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/pos_basket_layout"
-        app:layout_constraintTop_toBottomOf="@id/pos_category_layout" />
-    !-->
-
-
-    <LinearLayout
-        android:id="@+id/pos_basket_title"
-        android:layout_width="324dp"
-        android:layout_height="wrap_content"
-        android:background="@color/semi_background"
-        android:orientation="horizontal"
-        android:paddingVertical="6dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:layout_width="162dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:fontFamily="@font/bold"
-            android:gravity="center"
-            android:text="품 목"
-            android:textSize="16dp" />
-
-        <TextView
-            android:layout_width="64.8dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:fontFamily="@font/bold"
-            android:gravity="center"
-            android:text="수 량"
-            android:textSize="16dp" />
-
-        <TextView
-            android:layout_width="97.2dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:fontFamily="@font/bold"
-            android:gravity="center"
-            android:text="가 격"
-            android:textSize="16dp" />
-
-    </LinearLayout>
-
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/pos_basket_layout"
-        android:layout_width="324dp"
-        android:layout_height="0dp"
+        android:layout_width="384dp"
+        android:layout_height="match_parent"
         android:background="@color/semi_background"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pos_basket_title"
-        app:layout_constraintBottom_toTopOf="@id/pos_basket_discount_layout">
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/pos_basket_title"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="6dp"
+            android:paddingVertical="6dp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/bold"
+                android:gravity="center"
+                android:text="품 목"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.45"
+                android:fontFamily="@font/bold"
+                android:gravity="center"
+                android:text="수 량"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="3.6"
+                android:fontFamily="@font/bold"
+                android:gravity="center"
+                android:text="가 격"
+                android:textSize="16dp" />
+
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/pos_basket_rv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/semi_background">
+            android:layout_height="0dp"
+            android:background="@color/dark_background"
+            app:layout_constraintBottom_toTopOf="@id/pos_basket_total_layout"
+            app:layout_constraintTop_toBottomOf="@id/pos_basket_title">
 
         </androidx.recyclerview.widget.RecyclerView>
 
-    </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/pos_basket_discount_layout"
-        android:layout_width="324dp"
-        android:layout_height="wrap_content"
-        android:background="@color/semi_background"
-        android:orientation="horizontal"
-        android:paddingVertical="6dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/pos_basket_total_layout">
-
-        <TextView
-            android:layout_width="97.2dp"
+        <LinearLayout
+            android:id="@+id/pos_basket_total_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:fontFamily="@font/bold"
-            android:gravity="center"
-            android:text="할 인"
-            android:textSize="16dp" />
+            android:orientation="horizontal"
+            android:paddingVertical="6dp"
+            app:layout_constraintBottom_toTopOf="@id/pos_basket_discount_btn">
 
-        <TextView
-            android:layout_width="226.8dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="7"
-            android:fontFamily="@font/bold"
-            android:gravity="end"
-            android:paddingHorizontal="12dp"
-            android:text="-600원"
-            android:textSize="16dp" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:fontFamily="@font/bold"
+                android:gravity="center"
+                android:text="총 합"
+                android:textSize="16dp" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/pos_basket_total_price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:fontFamily="@font/bold"
+                android:gravity="end"
+                android:paddingHorizontal="12dp"
+                android:text="120,000원"
+                android:textSize="16dp" />
 
-    <LinearLayout
-        android:id="@+id/pos_basket_total_layout"
-        android:layout_width="324dp"
-        android:layout_height="wrap_content"
-        android:background="@color/semi_background"
-        android:orientation="horizontal"
-        android:paddingVertical="6dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/pos_basket_edit_layout">
-
-        <TextView
-            android:layout_width="97.2dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:fontFamily="@font/bold"
-            android:gravity="center"
-            android:text="총 합"
-            android:textSize="16dp" />
-
-        <TextView
-            android:id="@+id/pos_basket_total_price"
-            android:layout_width="226.8dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="7"
-            android:fontFamily="@font/bold"
-            android:gravity="end"
-            android:paddingHorizontal="12dp"
-            android:text="120,000원"
-            android:textSize="16dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="324dp"
-        android:layout_height="wrap_content"
-        android:background="@color/semi_background"
-        android:orientation="horizontal"
-        android:paddingVertical="6dp"
-        android:paddingHorizontal="6dp"
-        android:id="@+id/pos_basket_edit_layout"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/pos_basket_discount_btn">
+        </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/pos_basket_edit_replace"
-            android:layout_width="0dp"
+            android:id="@+id/pos_basket_discount_btn"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/bold"
-            android:text="수량 변경"
-            android:layout_marginRight="8dp"
+            android:layout_marginHorizontal="6dp"
+            android:layout_marginVertical="6dp"
             android:background="@color/cardview_dark_background"
+            android:fontFamily="@font/bold"
+            android:text="할인 조정"
             android:textSize="16dp"
-            android:layout_weight="1"
-            android:gravity="center"/>
+            app:layout_constraintBottom_toTopOf="@id/pos_basket_pay_btn" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/pos_basket_edit_remove"
-            android:layout_width="0dp"
+            android:id="@+id/pos_basket_pay_btn"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/bold"
-            android:text="상품 삭제"
+            android:layout_marginHorizontal="6dp"
+            android:layout_marginVertical="6dp"
             android:background="@color/cardview_dark_background"
+            android:fontFamily="@font/bold"
+            android:text="계산하기"
             android:textSize="16dp"
-            android:layout_weight="1"
-            android:gravity="center"/>
+            app:layout_constraintBottom_toBottomOf="parent" />
 
-    </LinearLayout>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="324dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/bold"
-        android:text="할인 조정"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/pos_basket_pay_btn"
-        android:background="@color/cardview_dark_background"
-        android:id="@+id/pos_basket_discount_btn"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="324dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/bold"
-        android:text="계산하기"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@color/cardview_dark_background"
-        android:id="@+id/pos_basket_pay_btn"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

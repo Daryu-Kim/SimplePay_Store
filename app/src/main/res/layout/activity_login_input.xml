@@ -51,17 +51,23 @@
         app:layout_constraintTop_toBottomOf="@id/login_input_id_tv">
 
         <RadioButton
+            android:id="@+id/login_input_id_eunhaeng"
             android:layout_width="wrap_content"
             android:paddingStart="8dp"
             android:layout_height="wrap_content"
+            android:tag="Eunhaeng"
+            android:hint="001400"
             android:fontFamily="@font/medium"
             android:text="은행동점"
             android:textColor="@color/white"
             android:textSize="24dp"/>
 
         <RadioButton
+            android:id="@+id/login_input_id_yongjeon"
             android:layout_width="wrap_content"
             android:paddingStart="8dp"
+            android:tag="Yongjeon"
+            android:hint="030000"
             android:layout_height="wrap_content"
             android:fontFamily="@font/medium"
             android:layout_marginStart="24dp"
@@ -70,7 +76,10 @@
             android:textSize="24dp"/>
 
         <RadioButton
+            android:id="@+id/login_input_id_oryu"
+            android:tag="Oryu"
             android:layout_marginStart="24dp"
+            android:hint="030000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingStart="8dp"
