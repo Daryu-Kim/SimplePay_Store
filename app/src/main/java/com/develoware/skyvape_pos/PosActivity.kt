@@ -70,6 +70,48 @@ class PosActivity : AppCompatActivity() {
             }
         }
 
+        binding.posCategoryMouthLiquid.setOnClickListener {
+            category = it.tag as String
+            binding.posProductList.apply {
+                adapter = RecyclerViewAdapter()
+            }
+        }
+
+        binding.posCategoryLungLiquid.setOnClickListener {
+            category = it.tag as String
+            binding.posProductList.apply {
+                adapter = RecyclerViewAdapter()
+            }
+        }
+
+        binding.posCategoryMouthAtomizer.setOnClickListener {
+            category = it.tag as String
+            binding.posProductList.apply {
+                adapter = RecyclerViewAdapter()
+            }
+        }
+
+        binding.posCategoryLungAtomizer.setOnClickListener {
+            category = it.tag as String
+            binding.posProductList.apply {
+                adapter = RecyclerViewAdapter()
+            }
+        }
+
+        binding.posCategoryOnceAtomizer.setOnClickListener {
+            category = it.tag as String
+            binding.posProductList.apply {
+                adapter = RecyclerViewAdapter()
+            }
+        }
+
+        binding.posCategoryAccesory.setOnClickListener {
+            category = it.tag as String
+            binding.posProductList.apply {
+                adapter = RecyclerViewAdapter()
+            }
+        }
+
         basketData.clear()
 
         binding.posBasketRv.apply {
