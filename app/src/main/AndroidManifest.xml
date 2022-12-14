@@ -24,6 +24,7 @@
         <activity android:name=".LoginActivity" android:screenOrientation="landscape"/>
         <activity android:name=".LoginInputActivity" android:screenOrientation="landscape"/>
         <activity android:name=".PosActivity" android:screenOrientation="landscape"/>
+        <activity android:name=".PaymentActivity" android:screenOrientation="landscape"/>
     </application>
 
 </manifest>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Background"
+    android:paddingHorizontal="48dp"
+    android:paddingVertical="64dp">
+
+    <TextView
+        android:id="@+id/payment_title_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bold"
+        android:gravity="center"
+        android:text="결제 수단을 선택해주세요!"
+        android:textSize="56dp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/payment_content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="36dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/payment_title_tv">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/payment_content_cash_layout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="80dp">
+
+            <ImageView
+                android:id="@+id/payment_content_cash_iv"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginVertical="24dp"
+                android:layout_width="192dp"
+                android:layout_height="192dp"
+                android:background="@drawable/payment_cash_24dp"
+                app:layout_constraintBottom_toTopOf="@id/payment_content_cash_tv"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/payment_content_cash_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/medium"
+                android:gravity="center"
+                android:text="현금"
+                android:textSize="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/payment_content_transfer_layout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:paddingVertical="80dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/payment_content_transfer_iv"
+                android:layout_width="216dp"
+                android:layout_height="216dp"
+                android:background="@drawable/payment_transfer_24dp"
+                app:layout_constraintBottom_toTopOf="@id/payment_content_transfer_tv"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/payment_content_transfer_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/medium"
+                android:gravity="center"
+                android:text="계좌이체"
+                android:textSize="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/payment_content_creditcard_layout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:paddingVertical="80dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/payment_content_creditcard_iv"
+                android:layout_width="256dp"
+                android:layout_height="256dp"
+                android:background="@drawable/payment_creditcard_24dp"
+                app:layout_constraintBottom_toTopOf="@id/payment_content_creditcard_tv"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/payment_content_creditcard_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/medium"
+                android:gravity="center"
+                android:text="신용카드"
+                android:textSize="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/payment_content_kakaopay_layout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:paddingVertical="80dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/payment_content_kakaopay_iv"
+                android:layout_width="224dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/payment_kakaopay"
+                app:layout_constraintBottom_toTopOf="@id/payment_content_kakaopay_tv"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/payment_content_kakaopay_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/medium"
+                android:gravity="center"
+                android:text="카카오페이"
+                android:textSize="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

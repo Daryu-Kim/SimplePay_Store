@@ -1,5 +1,6 @@
 package com.develoware.skyvape_pos
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.ColorMatrix
@@ -13,6 +14,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -112,6 +114,24 @@ class PosActivity : AppCompatActivity() {
             }
         }
 
+        binding.posBasketDiscountBtn.setOnClickListener {
+            if (binding.posBasketTotalPrice.text == "0원") {
+                Toast.makeText(this, "상품이 담기지 않았습니다!", Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(this, PaymentActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
+        binding.posBasketPayBtn.setOnClickListener {
+            if (binding.posBasketTotalPrice.text == "0원") {
+                Toast.makeText(this, "상품이 담기지 않았습니다!", Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(this, PaymentActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
         basketData.clear()
 
         binding.posBasketRv.apply {
@@ -126,6 +146,25 @@ class PosActivity : AppCompatActivity() {
 
 
     }
+
+    override fun onBackPressed() {
+        dialog()
+    }
+
+    fun dialog() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("알림")
+            .setMessage("처음으로 돌아가시겠습니까?\n처음으로 돌아가시면 상품을 새로 담아야 합니다!")
+            .setPositiveButton("확인",DialogInterface.OnClickListener{ dialog, id ->
+                finish()
+            })
+            .setNegativeButton("취소", DialogInterface.OnClickListener { dialog, id ->
+
+            })
+
+        builder.show()
+    }
+
     inner class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         var productData: ArrayList<ProductData> = arrayListOf()
 
