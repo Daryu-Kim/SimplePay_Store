@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/transfer_layout"
+    android:background="@color/Background"
+    android:paddingHorizontal="48dp"
+    android:paddingVertical="64dp">
+
+    <TextView
+        android:id="@+id/transfer_title_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bold"
+        android:gravity="center"
+        android:text="계좌이체"
+        android:textSize="56dp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/transfer_content_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/medium"
+        android:layout_marginTop="36dp"
+        android:gravity="center"
+        android:text="@string/transfer"
+        android:textSize="42dp"
+        app:layout_constraintBottom_toTopOf="@id/transfer_content2_tv"
+        app:layout_constraintTop_toBottomOf="@id/transfer_title_tv" />
+
+    <TextView
+        android:id="@+id/transfer_content2_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/medium"
+        android:layout_marginTop="36dp"
+        android:gravity="center"
+        android:text="이체 후 꼭 직원에게 알려주세요!"
+        android:textSize="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

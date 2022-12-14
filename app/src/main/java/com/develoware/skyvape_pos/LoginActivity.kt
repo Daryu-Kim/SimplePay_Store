@@ -24,6 +24,7 @@ class LoginActivity : AppCompatActivity() {
         binding.loginContentLoginPhoneBtnLayout.setOnClickListener {
             val intent = Intent(this, LoginInputActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
     }
@@ -35,5 +36,9 @@ class LoginActivity : AppCompatActivity() {
 
             controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         }
+    }
+
+    override fun onBackPressed() {
+
     }
 }

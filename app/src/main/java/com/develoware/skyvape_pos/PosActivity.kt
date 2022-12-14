@@ -129,6 +129,7 @@ class PosActivity : AppCompatActivity() {
             } else {
                 val intent = Intent(this, PaymentActivity::class.java)
                 startActivity(intent)
+                finish()
             }
         }
 
@@ -149,6 +150,11 @@ class PosActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         dialog()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
     }
 
     fun dialog() {

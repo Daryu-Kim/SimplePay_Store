@@ -78,6 +78,10 @@ class LoginInputActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+
+    }
+
     private fun saveKey(key : String) {
         val pref = getSharedPreferences("key", 0)
         val edit = pref.edit()
