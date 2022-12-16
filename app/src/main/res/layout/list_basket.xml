@@ -63,14 +63,6 @@
         android:text="120,000"
         android:textSize="14dp" />
 
-    <ImageButton
-        android:id="@+id/basket_delete"
-        android:layout_width="0dp"
-        android:layout_height="20dp"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="0.6"
-        android:background="@drawable/basket_delete_24dp" />
-
     <TextView
         android:id="@+id/basket_price_00"
         android:layout_width="1dp"

@@ -40,6 +40,11 @@ class PosActivity : AppCompatActivity() {
 
     var basketData = arrayListOf<BasketData>()
 
+    val basket_data = hashMapOf(
+        "total_price" to 0,
+        "discount_price" to 0
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = ActivityPosBinding.inflate(layoutInflater)
@@ -114,6 +119,11 @@ class PosActivity : AppCompatActivity() {
             }
         }
 
+        binding.posBasketResetBtn.setOnClickListener {
+            basketReset("Eunhaeng")
+            binding.posBasketTotalPrice.text = "${DecimalFormat("#,###").format(0)}원"
+        }
+
         binding.posBasketDiscountBtn.setOnClickListener {
             if (binding.posBasketTotalPrice.text == "0원") {
                 Toast.makeText(this, "상품이 담기지 않았습니다!", Toast.LENGTH_SHORT).show()
@@ -169,6 +179,20 @@ class PosActivity : AppCompatActivity() {
             })
 
         builder.show()
+    }
+
+    private fun basketReset(key : String) {
+        db.collection("${key}_Basket")
+            .get()
+            .addOnSuccessListener { it ->
+                it.forEach {
+                    it.reference.delete()
+                }
+            }
+
+        db.collection("${key}_Basket_Data")
+            .document("basket_data")
+            .set(basket_data)
     }
 
     inner class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

@@ -50,7 +50,6 @@ class BasketAdapter(key : String?) : RecyclerView.Adapter<RecyclerView.ViewHolde
         val price_tv = viewHolder.findViewById<TextView>(R.id.basket_price)
         val add_btn = viewHolder.findViewById<ImageButton>(R.id.basket_add)
         val remove_btn = viewHolder.findViewById<ImageButton>(R.id.basket_remove)
-        val delete_btn = viewHolder.findViewById<ImageButton>(R.id.basket_delete)
 
         name_tv.text = basketData[position].name
         price_tv.tag = basketData[position].price
@@ -95,12 +94,6 @@ class BasketAdapter(key : String?) : RecyclerView.Adapter<RecyclerView.ViewHolde
 
                 Toast.makeText(it.context, "${t_count}: ${price_tv.text}", Toast.LENGTH_SHORT).show()
             }
-        }
-
-        delete_btn.setOnClickListener {
-            db.collection("Eunhaeng_Basket")
-                .document(name_tv.text.toString())
-                .delete()
         }
 
         holder.itemView.setOnClickListener {

@@ -196,7 +196,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="3.6"
+                android:layout_weight="3"
                 android:fontFamily="@font/bold"
                 android:gravity="center"
                 android:text="가 격"
@@ -220,7 +220,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingVertical="6dp"
-            app:layout_constraintBottom_toTopOf="@id/pos_basket_discount_btn">
+            app:layout_constraintBottom_toTopOf="@id/pos_basket_reset_btn">
 
             <TextView
                 android:layout_width="0dp"
@@ -243,6 +243,18 @@
                 android:textSize="16dp" />
 
         </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/pos_basket_reset_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:layout_marginVertical="6dp"
+            android:background="@color/cardview_dark_background"
+            android:fontFamily="@font/bold"
+            android:text="초기화"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toTopOf="@id/pos_basket_discount_btn" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/pos_basket_discount_btn"
